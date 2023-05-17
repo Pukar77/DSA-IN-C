@@ -29,7 +29,7 @@ int main() {
    a[p]=e;
    n=n+1;
    
-     printf("The array are inserting the numbers are\n");
+     printf("The array after inserting the numbers are\n");
    for(i=0;i<n;i++){
    printf("%d\t",a[i]);
    }

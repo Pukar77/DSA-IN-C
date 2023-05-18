@@ -9,6 +9,11 @@ int main() {
   
   num=(int *)malloc(n * sizeof(int));
   
+  if(num==NULL){
+      printf("Memory allocation failed !\n");
+      return 1;
+  }
+  
   printf("Enter the elements\n");
   for(i=0;i<n;i++){
       scanf("%d",&num[i]);
@@ -16,6 +21,8 @@ int main() {
   }
   
   printf("The sum of the numbers is %d", sum);
+  
+  free(num);
 
     return 0;
 }

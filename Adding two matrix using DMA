@@ -90,6 +90,20 @@ for(i=0;i<row;i++){
     }
     printf("\n");
 }
+// Free the dynamically allocated memory
+    for (i = 0; i < rows1; i++) {
+        free(matrix1[i]);
+    }
+    for (i = 0; i < rows2; i++) {
+        free(matrix2[i]);
+    }
+    for (i = 0; i < rows1; i++) {
+        free(sum[i]);
+    }
+    free(matrix1);
+    free(matrix2);
+    free(sum);
+
 
 
 

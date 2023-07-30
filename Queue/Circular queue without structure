@@ -1,0 +1,90 @@
+#include <stdio.h>
+#define MAX_SIZE 4
+
+void enqueue(int, int);
+void dequeue(int, int);
+void display(int, int);
+
+int item[MAX_SIZE];
+int front = MAX_SIZE - 1;
+int rear = MAX_SIZE - 1;
+
+int main()
+{
+    int option;
+    printf("Enter the queue operation\n 1. Enqueue\n 2. Dequeue\n 3. Display Elements\n 4. Exit\n");
+    do
+    {
+        printf("\nYour Choice: ");
+        scanf("%d", &option);
+
+        switch (option)
+        {
+        case 1:
+            enqueue(front, rear);
+            break;
+        case 2:
+            dequeue(front, rear);
+            break;
+        case 3:
+            display(front, rear);
+            break;
+        case 4:
+            printf("Exiting...\n");
+            break;
+        default:
+            printf("Invalid Choice\n");
+            break;
+        }
+    } while (option != 4);
+    return 0;
+}
+
+void enqueue(int front, int rear)
+{
+    int value;
+    if ((rear + 1) % MAX_SIZE == front)
+    {
+        printf("ERROR! Queue Overflow\n");
+    }
+    else
+    {
+        printf("Enter the value to be inserted: ");
+        scanf("%d", &value);
+        rear = (rear + 1) % MAX_SIZE;
+        item[rear] = value;
+        printf("The element %d is inserted to the queue\n", value);
+    }
+}
+
+void dequeue(int front, int rear)
+{
+    if (front == rear)
+    {
+        printf("ERROR! Queue Underflow\n");
+    }
+    else
+    {
+        front = (front + 1) % MAX_SIZE;
+        printf("The deleted element is %d\n", item[front]);
+    }
+}
+
+void display(int front, int rear)
+{
+    if (front == rear)
+    {
+        printf("ERROR! Queue is empty\n");
+    }
+    else
+    {
+        printf("The elements of the queue are: ");
+        int i = (front + 1) % MAX_SIZE;
+        while (i != (rear + 1) % MAX_SIZE)
+        {
+            printf("%d\t", item[i]);
+            i = (i + 1) % MAX_SIZE;
+        }
+        printf("\n");
+    }
+}

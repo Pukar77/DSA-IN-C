@@ -1,0 +1,52 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include<string.h>
+
+struct node {
+  char name[20];
+  int data;
+    struct node *next;
+};
+
+typedef struct node node;
+
+node *head = NULL;
+
+void add() {
+   char n[20];
+    node *newnode = (node*)malloc(sizeof(node));
+printf("Enter the name\n");
+scanf("%s",n);
+strcpy(newnode->name,n);
+
+    if (head == NULL) {
+        newnode->next = NULL;
+        head = newnode;
+    } else {
+        node *ptr = head;
+        while (ptr->next != NULL) {
+            ptr = ptr->next;
+        }
+        ptr->next = newnode;
+        newnode->next = NULL;
+    }
+}
+
+int main() {
+    printf("---Menus are---\n");
+    printf("1.INternation\n2> Doimestic");
+    int choice;
+    do {
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+        switch (choice) {
+            case 1:
+add();
+      break;         
+        }
+    }while(choice!=2);
+
+   
+
+    return 0;
+}

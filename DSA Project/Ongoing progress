@@ -1,0 +1,203 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include<string.h>
+
+struct node {
+  char name[20];
+  char name1[20];
+  char slocation[20];
+  char flocation[20];
+  int number;
+    struct node *next;
+};
+
+typedef struct node node;
+
+node *head = NULL;
+node *newnode = (node*)malloc(sizeof(node));
+
+void detail(){
+	
+	printf("Flight Attendant: %s %s",newnode->name, newnode->name1 );
+	
+	
+	
+	
+	
+}
+
+void add() {
+   char n[20];
+   char n1[20];
+   int num;
+   char sloc[20];
+   char floc[20];
+ 
+   
+    
+printf("Enter your first name\n");
+scanf("%s",n);
+strcpy(newnode->name,n);
+
+printf("Enter your last name\n");
+scanf("%s",n1);
+strcpy(newnode->name1,n1);
+
+printf("Enter your phone number\n");
+scanf("%d",&num);
+newnode->number=num;
+
+printf("Enter your starting Destination\n");
+scanf("%s",sloc);
+strcpy(newnode->slocation,sloc);
+
+printf("Enter your Final Destination\n");
+scanf("%s",floc);
+strcpy(newnode->flocation,floc);
+
+
+   
+
+    if (head == NULL) {
+        newnode->next = NULL;
+        head = newnode;
+    } else {
+        node *ptr = head;
+        while (ptr->next != NULL) {
+            ptr = ptr->next;
+        }
+        ptr->next = newnode;
+        newnode->next = NULL;
+    }
+}
+
+void display(){
+	int choice;
+	int amount;
+	int select;
+	char pass[20];
+	int confirm;
+	int confirm1;
+	printf("The following is the price list of Flight from %s to %s\n\n\n",newnode->slocation,newnode->flocation);
+	printf("Business Class              Rs 20,000\n\n");
+	printf("Normal Class                Rs 11,000\n\n");
+	apple:
+	printf("Enter 1 for bussiness class\n Enter 2 for normal class\n");
+	scanf("%d",&select);
+	switch(select){
+		case 1:
+			do{
+			printf("Are you sure you want to book buisiness class flight?? Press 1 to confirm and 2 to cancel\n");
+			scanf("%d",&confirm);                      
+		} while(confirm!=1);
+		
+		case 2:
+				do{
+			printf("Are you sure you want to book buisiness class flight?? Press 1 to confirm and 2 to cancel\n");
+			scanf("%d",&confirm1);                      
+		} while(confirm1!=1);
+	                  
+	}
+	                  
+	printf("Press 1 for E-sewa\n");
+	printf("Press 2 for Khalti\n");
+	printf("ENter 3 for Mobile Banking\n");
+	scanf("%d",&choice);
+	switch(choice){
+		case 1:
+			second:
+			printf("Enter your E-sewa password\n");
+			scanf("%s",pass);
+			if(strcmp(pass,"pukar")==0){
+				printf("Welcome Back\n");
+				first:
+				printf("Enter the amount of payment\n");
+				scanf("%d",&amount);
+			if(amount!=20000   && amount!=11000){
+				printf("Invalid amount\n");
+				goto first;
+			}
+			else{
+				printf("Congratulation, Booking succesfull\n");
+			}
+			}
+			else{
+				printf("Invalid password\n");
+				goto second;
+			}
+			
+			break;
+			case 2:
+				six:
+			printf("Enter your Khalti password\n");
+			scanf("%s",pass);
+			if(strcmp(pass,"pukar")==0){
+				printf("Welcome Back\n");
+				hello:
+				printf("Enter the amount of payment\n");
+				scanf("%d",&amount);
+			if(amount!=20000 && amount!=11000){
+				printf("Invalid amount\n");
+				goto hello;
+			}
+			else{
+				printf("Congratulation, Booking succesfull\n");
+			}
+			}
+			else{
+				printf("Invalid password\n");
+				goto six;
+			}
+			break;
+			
+			
+			case 3:
+				fifth:
+			printf("Enter your E-Banking password\n");
+			scanf("%s",pass);
+			if(strcmp(pass,"pukar")==0){
+				printf("Welcome Back\n");
+				hi:
+				printf("Enter the amount of payment\n");
+				scanf("%d",&amount);
+			if(amount!=20000 && amount!=11000){
+				printf("Invalid amount\n");
+				goto hi;
+			}
+			else{
+				printf("Congratulation, Booking succesfull\n");
+			}
+			}
+			else{
+				printf("Invalid password\n");
+				goto fifth;
+			}
+			
+	}
+     
+}
+
+int main() {
+	menu:
+    printf("---Menus are---\n");
+    printf("1.Press 1 for Flight Booking\n2.Press 2 for flight Detail\nPress 3 For admin mode(Only for staffs)\n");
+    int choice;
+    int c;
+       printf("Enter your choice: ");
+    do {
+        scanf("%d", &choice);
+        switch (choice) {
+            case 1:
+   printf("Enter 1 For International Flight\nEnter 2 for Domestic flight\n");
+   scanf("%d",&c);
+     add();
+     system("cls");
+     display();
+     goto menu;
+      break;   
+	  case 2:
+	detail();      
+        }
+    }while(choice!=3);
+return 0;
+}

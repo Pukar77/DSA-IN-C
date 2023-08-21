@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include<string.h>
-
+int amount;
 struct node {
   char name[20];
   char name1[20];
@@ -18,13 +18,29 @@ node *newnode = (node*)malloc(sizeof(node));
 
 void detail(){
 	
-	printf("Flight Attendant: %s %s",newnode->name, newnode->name1 );
-	
-	
-	
-	
-	
+printf("Flight Attendant: %s %s\n",newnode->name, newnode->name1 );
+ printf("Phone number: %d\n",newnode->number);
+ printf("Starting location: %s\n", newnode->slocation);
+ printf("Final location: %s\n",newnode->flocation);
+if(amount==11000){
+	printf("Class : Normal Class\n");
 }
+else{
+	printf("Class : Business Class\n");
+}
+
+
+
+    }
+    
+
+	
+	
+	
+	
+	
+	
+
 
 void add() {
    char n[20];
@@ -73,7 +89,7 @@ strcpy(newnode->flocation,floc);
 
 void display(){
 	int choice;
-	int amount;
+	
 	int select;
 	char pass[20];
 	int confirm;
@@ -193,6 +209,7 @@ int main() {
      add();
      system("cls");
      display();
+     system("cls");
      goto menu;
       break;   
 	  case 2:

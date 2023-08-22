@@ -18,6 +18,22 @@ typedef struct node node;
 node *head = NULL;
 node *newnode = (node*)malloc(sizeof(node));
 
+void check(){
+	char pass[20];
+	chess:
+	printf("Enter the password\n");
+	scanf("%s",pass);
+	
+	if(strcmp(pass,"letsfly")==0){
+				printf("Welcome Back\n");
+}
+else{
+	printf("Invalid password\n");
+	goto chess;
+}
+	
+}
+
 void detail(){
 	 time_t t;   
     time(&t);
@@ -35,7 +51,7 @@ if(amount==11000){
 }
 else{
 	printf(": Class : Business Class   \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t:\n");
-	printf(": Boarding Time: %d                                                  \t ",rand(0,10)); 
+	printf(": Boarding Time: 3:00 PM   \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t:\n "); 
 	printf("........................................................................................................................\n");
 }
 
@@ -213,7 +229,7 @@ int main() {
     printf("1.Press 1 for Flight Booking\n2.Press 2 for flight Detail\nPress 3 For admin mode(Only for staffs)\n");
     int choice;
     int c;
-       printf("Enter your choice: ");
+       printf("Enter your choice: ");\
     do {
         scanf("%d", &choice);
         switch (choice) {
@@ -227,8 +243,13 @@ int main() {
      goto menu;
       break;   
 	  case 2:
-	detail();      
-        }
+	detail(); 
+	break;     
+       
+    
+    case 3:
+    	check();
+    	}
     }while(choice!=3);
 return 0;
 }

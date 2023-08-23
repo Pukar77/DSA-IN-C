@@ -1,0 +1,57 @@
+#define MAX_NAMES 11  // Including space for the new name
+#define MAX_NAME_LENGTH 50
+
+int main() {
+    char names[MAX_NAMES][MAX_NAME_LENGTH];
+
+    // Add 10 random names
+    srand(time(NULL));
+    char random_names[10][MAX_NAME_LENGTH] = {
+        "Random1",
+        "Random2",
+        "Random3",
+        "Random4",
+        "Random5",
+        "Random6",
+        "Random7",
+        "Random8",
+        "Random9",
+        "Random10"
+    };
+
+    for (int i = 0; i < 10; i++) {
+        strcpy(names[i], random_names[i]);
+    }
+
+    // Assume newnode is defined elsewhere
+    struct Node {
+        char name[MAX_NAME_LENGTH];
+        // other fields...
+    };
+    struct Node *newnode;  // Assume this is the new node with the name
+
+    strcpy(names[10], newnode->name);
+
+    int numNames = MAX_NAMES;  // Total number of names
+
+    printf("Names before sorting:\n");
+    for (int i = 0; i < numNames; i++) {
+        printf("%s\n", names[i]);
+    }
+
+    // Bubble sort
+    for (int i = 0; i < numNames - 1; i++) {
+        for (int j = 0; j < numNames - i - 1; j++) {
+            if (strcmp(names[j], names[j + 1]) > 0) {
+                char temp[MAX_NAME_LENGTH];
+                strcpy(temp, names[j]);
+                strcpy(names[j], names[j + 1]);
+                strcpy(names[j + 1], temp);
+            }
+        }
+    }
+
+    printf("\nNames after sorting:\n");
+    for (int i = 0; i < numNames; i++) {
+        printf("%s\n", names[i]);
+    }

@@ -24,6 +24,33 @@ typedef struct node node;
 node *head = NULL;
 node *newnode = (node*)malloc(sizeof(node));
 
+
+
+void maskPasswordInput(char *password) {
+    char ch;
+    int i = 0;
+
+    while (1) {
+        ch = _getch();  // Get a character without echoing to the console
+
+        if (ch == 13) {  // Check if Enter key is pressed
+            break;
+        }
+        if (ch == 8 && i > 0) {  // Check if Backspace key is pressed
+            printf("\b \b");  // Clear the last asterisk
+            i--;
+        } else if (i < MAX_PASSWORD_LENGTH - 1) {  // Leave space for null-terminator
+            password[i] = ch;
+            printf("*");
+            i++;
+        }
+    }
+    password[i] = '\0';  // Null-terminate the input
+}
+
+
+
+
 void check(){
 	
 	 char password[MAX_PASSWORD_LENGTH + 1] = "letsfly";  // Set the correct password
@@ -134,7 +161,7 @@ void detail(){
  	printf(": Final location: %s      \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t:\n",newnode->flocation);	
 if(amount==11000){
 	printf(": Class : Normal Class    \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t:\n");
-	printf(": Boarding Time: %d : %d   %d/%d/%d                                                    \t ",rand()); 
+    	printf(": Boarding Time: 3:00 PM   \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t:\n "); 
 	printf("........................................................................................................................\n");
 }
 else{
@@ -238,7 +265,7 @@ void display(){
 		case 1:
 			second:
 			printf("Enter your E-sewa password\n");
-			scanf("%s",pass);
+			 maskPasswordInput(pass);
 			if(strcmp(pass,"pukar")==0){
 				printf("Welcome Back\n");
 				first:
@@ -262,7 +289,7 @@ void display(){
 			case 2:
 				six:
 			printf("Enter your Khalti password\n");
-			scanf("%s",pass);
+		 maskPasswordInput(pass);
 			if(strcmp(pass,"pukar")==0){
 				printf("Welcome Back\n");
 				hello:
@@ -287,7 +314,7 @@ void display(){
 			case 3:
 				fifth:
 			printf("Enter your E-Banking password\n");
-			scanf("%s",pass);
+			 maskPasswordInput(pass);
 			if(strcmp(pass,"pukar")==0){
 				printf("Welcome Back\n");
 				hi:

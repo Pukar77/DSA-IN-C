@@ -382,5 +382,6 @@ int main() {
     	check();
     	}
     }while(choice!=3);
+    getch();
 return 0;
 }

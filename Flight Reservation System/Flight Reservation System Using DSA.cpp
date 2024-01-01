@@ -1,3 +1,5 @@
+//NOTE: it works only on cpp extension
+
 #include <stdio.h>
 #include <stdlib.h>
 #include<string.h>

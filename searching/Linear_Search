@@ -1,0 +1,41 @@
+#include<stdio.h>
+int linearSearch(int n , int arr[], int target){
+    int i;
+    for(i=0;i<n;i++){
+        if(target == arr[i]){
+            return i;
+        }
+        
+    }
+    return -1;
+}
+
+int main(){
+    int i, n, arr[10], target;
+    printf("Enter the number of items to put\n");
+    scanf("%d", &n);
+    
+    printf("Enter the numbers \n");
+    for(i=0;i<n;i++){
+        scanf("%d", &arr[i]);
+    }
+    
+    printf("You entered the following elements\n");
+      for(i=0;i<n;i++){
+        printf("%d\t", arr[i]);
+    }
+    
+    printf("Enter the number you want to search\n");
+    scanf("%d", &target);
+    
+    int result = linearSearch(n, arr, target);
+    if(result==-1){
+        printf("The item you are trying to search is not in the list\n");
+    }
+    else{
+        printf("Item found in index %d",result );
+    }
+    
+    return 0;
+    
+}
